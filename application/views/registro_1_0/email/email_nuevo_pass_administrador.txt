@@ -1,0 +1,11 @@
+Han solicitado una nueva contraseña en {URL}.
+
+Estos son los datos del usuario:
+
+Usuario
+    {Usuario}
+Contraseña
+    No se muestra por seguridad
+
+Puede acceder a la aplicación desde este enlace:
+{URL}

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>Envio email</title>
+
+        <style type="text/css">
+            /* GENERICOS */
+            html {
+                font-size: 62.5%;
+            }
+            body {
+                background-color: #505050;
+                font-family: "Trebuchet MS",Arial,Helvetica,sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+            p,
+            li,
+            a,
+            dt,
+            dd {
+                color: #555;
+                font-size: 1.7rem;
+            }
+            ul {
+                list-style: none;
+            }
+            /* Estilo CONTENEDOR */
+            #contenedor {
+                color: #000;
+                margin: 2.5% auto 0;
+                overflow: hidden;
+                width: 95%;
+            }
+            /* CABECERA */
+            #cabecera {
+                z-index: 1;
+            }
+            #cabecera #logo {
+                margin: 0 0 1em 0;
+                padding: 0;
+            }
+            /* CONTENIDO */
+            #content {
+                background: #fff;
+                padding: 3em;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="contenedor">
+            <div id="cabecera">
+                <div id="logo">
+                    <img src="cid:logo-email" alt="Logo" />
+                </div>
+            </div> <!-- /cabecera -->
+
+            <div id="content">
+                <p>El usuario {Usuario} ha sido bloqueado por superar el n&uacute;mero m&aacute;ximo de intentos de login: {NumeroIntentosLogin}.</p> 
+                <p>
+                    Puede acceder a la aplicaci&oacute;n desde este enlace:<br />
+                    <a href="{URL}" title="Se abrir&aacute; en una ventana nueva" target="_blank">{URL}</a>
+                </p>
+            </div> <!-- /content -->
+        </div> <!-- /contenedor -->
+    </body>
+</html>

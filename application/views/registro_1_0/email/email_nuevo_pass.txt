@@ -1,0 +1,13 @@
+Estimado {Nombre},
+
+Ha solicitado una nueva contraseña en {URL}.
+
+Le recordamos sus datos:
+
+Usuario:
+    {Usuario}
+Contraseña:
+    {Password}
+
+Puede acceder a la aplicación desde este enlace:
+{URL}

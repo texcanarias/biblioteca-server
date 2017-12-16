@@ -1,0 +1,6 @@
+Estimado {Nombre},
+
+Su cuenta de {URL} ha sido habilitada.
+
+Puede acceder a la aplicacion desde este enlace:
+{URL}

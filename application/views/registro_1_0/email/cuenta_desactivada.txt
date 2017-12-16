@@ -1,0 +1,6 @@
+Estimado {Nombre},
+
+Su cuenta de {URL} ha sido desactivada.
+
+Puede acceder a la aplicación desde este enlace:
+{URL}

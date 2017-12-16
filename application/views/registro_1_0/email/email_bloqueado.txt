@@ -1,0 +1,8 @@
+Estimado {Nombre},
+
+Su usuario de {URL} ha sido bloqueado.
+
+Contacte con un administrador para recuperar su cuenta.
+
+Puede acceder a la aplicación desde este enlace:
+{URL}

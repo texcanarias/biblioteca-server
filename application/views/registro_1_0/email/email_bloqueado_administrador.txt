@@ -1,0 +1,4 @@
+El usuario {Usuario} ha sido bloqueado por superar el número máximo de intentos de login: {NumeroIntentosLogin}.
+
+Puede acceder a la aplicación desde este enlace:
+{URL}
