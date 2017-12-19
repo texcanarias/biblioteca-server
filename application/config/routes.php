@@ -56,7 +56,6 @@ $route['translate_uri_dashes'] = FALSE;
 /*
 | -------------------------------------------------------------------------
 | REST API Routes
- * @todo Cada una de estas rutas deberían estar integradas dentro de sus controladores.
 | -------------------------------------------------------------------------
 */
 
@@ -64,62 +63,3 @@ $route['translate_uri_dashes'] = FALSE;
 // REGISTRO_1_0
 //----------------------------------------------------------------
 require (__DIR__ .'/../controllers/registro_1_0/routes.php'); 
-
-
-//----------------------------------------------------------------
-// EUSKALIT_EMPRESAS_1_0
-//----------------------------------------------------------------
-require (__DIR__ .'/../controllers/euskalit_empresas_1_0/routes.php');
-
-//----------------------------------------------------------------
-// EUSKALIT_EDICION_EQUIPO_TRABAJO_1_0
-//----------------------------------------------------------------
-require (__DIR__.'/../controllers/euskalit_edicion_equipo_trabajo_1_0/routes.php');
-
-
-//----------------------------------------------------------------
-// EUSKALIT_EDICION_DOCUMENTACION_1_0
-//----------------------------------------------------------------
-require (__DIR__.'/../controllers/euskalit_edicion_documentacion_1_0/routes.php');
-
-//----------------------------------------------------------------
-// EUSKALIT_EDICION_CHECKLIST_1_0
-//----------------------------------------------------------------
-require (__DIR__.'/../controllers/euskalit_edicion_checklist_1_0/routes.php');
-
-
-//----------------------------------------------------------------
-// EUSKALIT_EDICION_INDICADOR_1_0
-//----------------------------------------------------------------
-require (__DIR__.'/../controllers/euskalit_edicion_indicador_1_0/routes.php');
-
-//----------------------------------------------------------------
-// EUSKALIT_EDICION_AREA_1_0
-//----------------------------------------------------------------
-require (__DIR__.'/../controllers/euskalit_edicion_area_1_0/routes.php');
-
-//----------------------------------------------------------------
-// EUSKALIT_AUDITORIA_1_0
-//----------------------------------------------------------------
-require (__DIR__.'/../controllers/euskalit_auditoria_1_0/routes.php');
-
-//----------------------------------------------------------------
-// EUSKALIT_AUDITORIA_CHECKLIST_1_0
-//----------------------------------------------------------------
-require (__DIR__.'/../controllers/euskalit_auditoria_checklist_1_0/routes.php');
-
-//----------------------------------------------------------------
-// EUSKALIT_AUDITORIA_INDICADOR_1_0
-//----------------------------------------------------------------
-require (__DIR__.'/../controllers/euskalit_auditoria_indicador_1_0/routes.php');
-
-//----------------------------------------------------------------
-// EUSKALIT_AUDITORIA_ACCION_1_0
-//----------------------------------------------------------------
-require (__DIR__.'/../controllers/euskalit_auditoria_accion_1_0/routes.php');
-
-
-//----------------------------------------------------------------
-// EUSKALIT_ESTADISTICA_1_0
-//----------------------------------------------------------------
-require (__DIR__.'/../controllers/euskalit_estadistica_1_0/routes.php');

@@ -9,8 +9,6 @@ CREATE TABLE IF NOT EXISTS `ftn_reg_tipo_usuario` (
 
 INSERT INTO ftn_reg_tipo_usuario VALUES("1","root","Super usuario del sistema","1","1");
 INSERT INTO ftn_reg_tipo_usuario VALUES("2","admin","Administrador","1","1");
-INSERT INTO ftn_reg_tipo_usuario VALUES("3","editor","Editor","1","1");
-INSERT INTO ftn_reg_tipo_usuario VALUES("4","auditor","Auditor","1","1");
 
 CREATE TABLE IF NOT EXISTS `ftn_reg_usuario` (
   `Id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Identificador único',
@@ -48,5 +46,5 @@ DELIMITER ;
       
 
 INSERT INTO `ftn_reg_usuario` (`Id`, `Usuario`, `Pass`, `Nombre`, `Apellidos`, `FechaCreacion`, `FechaUltimoAcceso`, `EMail`, `ftn_reg_tipo_usuario_Id`,`IdIdioma`) VALUES
-(1, 'adclick', '678aa562c5d6f5b03c1511077ed28de1', 'adclick', '', NOW(), NOW(), 'sistemas@adclick.es', 1, 'es'),
-(2, 'admin', '9ae033a9e407ab815fd204566c2cf7af', 'admin', '', NOW(), NOW(), 'sistemas@adclick.es', 2, 'es');
+(1, 'adclick', md5('adclick'), 'adclick', '', NOW(), NOW(), 'sistemas@adclick.es', 1, 'es'),
+(2, 'admin', md5('admin'), 'admin', '', NOW(), NOW(), 'sistemas@adclick.es', 2, 'es');

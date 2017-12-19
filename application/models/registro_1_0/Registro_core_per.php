@@ -14,7 +14,7 @@ class Registro_core_per extends Primitiva_per {
 
     function __construct() {
         parent::__construct();
-        $this->Tabla = "ftn_reg_usuarios";
+        $this->Tabla = "ftn_reg_usuario";
     }
 
     function setItem(Model_interfaz $Item) {
@@ -39,7 +39,7 @@ class Registro_core_per extends Primitiva_per {
 
     private function getSqlItemInsert() {
         return "INSERT INTO
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     SET
                         Usuario = :USUARIO,
                         Nombre = :NOMBRE,
@@ -65,7 +65,7 @@ class Registro_core_per extends Primitiva_per {
 
     private function getSqlItemUpdate() {
         return "UPDATE
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     SET
                         Usuario = :USUARIO,
                         Nombre = :NOMBRE,

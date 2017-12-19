@@ -22,7 +22,7 @@ class Registro_listado_per extends Primitiva_listado_per {
 
     function __construct() {
         parent::__construct();
-        $this->Tabla = "ftn_reg_usuarios";
+        $this->Tabla = "ftn_reg_usuario";
         $this->TipoUsuario = -1;
     }
 
@@ -44,18 +44,18 @@ class Registro_listado_per extends Primitiva_listado_per {
 
     function getSqlItem() {
         return 'SELECT
-                        ftn_reg_usuarios.Id as Id,
-                        ftn_reg_usuarios.Nombre as Nombre,
-                        ftn_reg_usuarios.Apellidos as Apellidos,
-                        ftn_reg_usuarios.Usuario as Usuario,
-                        ftn_reg_usuarios.Email as EMail,
-                        ftn_reg_usuarios.ImagenPerfil as ImagenPerfil,
-                        ftn_reg_usuarios.FechaCreacion as FechaCreacion,
-                        ftn_reg_usuarios.FechaUltimoAcceso as FechaUltimoAcceso,
-                        ftn_reg_usuarios.Skin as Skin,
-                        ftn_reg_usuarios.IdActivo as IdActivo,
-                        ftn_reg_usuarios.IntentosLogin as IntentosLogin,
-                        ftn_reg_usuarios.IdIdioma as IdIdioma,
+                        ftn_reg_usuario.Id as Id,
+                        ftn_reg_usuario.Nombre as Nombre,
+                        ftn_reg_usuario.Apellidos as Apellidos,
+                        ftn_reg_usuario.Usuario as Usuario,
+                        ftn_reg_usuario.Email as EMail,
+                        ftn_reg_usuario.ImagenPerfil as ImagenPerfil,
+                        ftn_reg_usuario.FechaCreacion as FechaCreacion,
+                        ftn_reg_usuario.FechaUltimoAcceso as FechaUltimoAcceso,
+                        ftn_reg_usuario.Skin as Skin,
+                        ftn_reg_usuario.IdActivo as IdActivo,
+                        ftn_reg_usuario.IntentosLogin as IntentosLogin,
+                        ftn_reg_usuario.IdIdioma as IdIdioma,
                         ftn_reg_tipo_usuario.Id as ftn_reg_tipo_usuario_Id,
                         ftn_reg_tipo_usuario.Nombre as NombreTipoUsuario,
                         ftn_reg_tipo_usuario.Descripcion as Descripcion,
@@ -63,11 +63,11 @@ class Registro_listado_per extends Primitiva_listado_per {
                         ftn_reg_tipo_usuario.IdLibre as IdLibre,
                         ftn_reg_tipo_usuario.UrlHome as UrlHome
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                         LEFT JOIN
                             ftn_reg_tipo_usuario
                         ON
-                            ftn_reg_usuarios.ftn_reg_tipo_usuario_Id = ftn_reg_tipo_usuario.Id ';
+                            ftn_reg_usuario.ftn_reg_tipo_usuario_Id = ftn_reg_tipo_usuario.Id ';
     }
 
     /**
@@ -82,22 +82,22 @@ class Registro_listado_per extends Primitiva_listado_per {
         if (isset($ClavesBusqueda['buscar_por'])) {
             foreach ($ClavesBusqueda['buscar_por'] as $value) {
                 if ($value == 'nombre') {
-                    $SqlBusqueda[] = ' ftn_reg_usuarios.Nombre LIKE "%' . $ClavesBusqueda['mandato_buscador'] . '%" ';
+                    $SqlBusqueda[] = ' ftn_reg_usuario.Nombre LIKE "%' . $ClavesBusqueda['mandato_buscador'] . '%" ';
                 }
                 if ($value == 'usuario') {
-                    $SqlBusqueda[] = ' ftn_reg_usuarios.Usuario LIKE "%' . $ClavesBusqueda['mandato_buscador'] . '%" ';
+                    $SqlBusqueda[] = ' ftn_reg_usuario.Usuario LIKE "%' . $ClavesBusqueda['mandato_buscador'] . '%" ';
                 }
                 if ($value == 'apellidos') {
-                    $SqlBusqueda[] = ' ftn_reg_usuarios.Apellidos LIKE "%' . $ClavesBusqueda['mandato_buscador'] . '%" ';
+                    $SqlBusqueda[] = ' ftn_reg_usuario.Apellidos LIKE "%' . $ClavesBusqueda['mandato_buscador'] . '%" ';
                 }
                 if ($value == 'alta') {
-                    $SqlBusqueda[] = ' ftn_reg_usuarios.FechaCreacion LIKE "%' . $ClavesBusqueda['mandato_buscador'] . '%" ';
+                    $SqlBusqueda[] = ' ftn_reg_usuario.FechaCreacion LIKE "%' . $ClavesBusqueda['mandato_buscador'] . '%" ';
                 }
                 if ($value == 'acceso') {
-                    $SqlBusqueda[] = ' ftn_reg_usuarios.FechaUltimoAcceso LIKE "%' . $ClavesBusqueda['mandato_buscador'] . '%" ';
+                    $SqlBusqueda[] = ' ftn_reg_usuario.FechaUltimoAcceso LIKE "%' . $ClavesBusqueda['mandato_buscador'] . '%" ';
                 }
                 if ($value == 'email') {
-                    $SqlBusqueda[] = ' ftn_reg_usuarios.EMail LIKE "%' . $ClavesBusqueda['mandato_buscador'] . '%" ';
+                    $SqlBusqueda[] = ' ftn_reg_usuario.EMail LIKE "%' . $ClavesBusqueda['mandato_buscador'] . '%" ';
                 }
             }
         }
@@ -150,17 +150,17 @@ class Registro_listado_per extends Primitiva_listado_per {
     private function getSqlAllItem() {
         return 'SELECT
                         *,
-                        ftn_reg_usuarios.Id as IdUsuario,
-                        ftn_reg_usuarios.Nombre as NombreUsuario,
+                        ftn_reg_usuario.Id as IdUsuario,
+                        ftn_reg_usuario.Nombre as NombreUsuario,
                         ftn_reg_tipo_usuario.Id as IdTipoUsuario,
                         ftn_reg_tipo_usuario.Nombre as TipoUsuario,
-                        ftn_reg_usuarios.IdActivo as IdActivoUsuario
+                        ftn_reg_usuario.IdActivo as IdActivoUsuario
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                         LEFT JOIN
                             ftn_reg_tipo_usuario
                         ON
-                            ftn_reg_usuarios.ftn_reg_tipo_usuario_Id = ftn_reg_tipo_usuario.Id ';
+                            ftn_reg_usuario.ftn_reg_tipo_usuario_Id = ftn_reg_tipo_usuario.Id ';
     }
 
     /**
@@ -191,7 +191,7 @@ class Registro_listado_per extends Primitiva_listado_per {
         return 'SELECT
                         *
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         ftn_reg_tipo_usuario_Id = 1 ;';
     }
@@ -221,14 +221,14 @@ class Registro_listado_per extends Primitiva_listado_per {
     private function getSqlUsuariosPorTipoUsuario() {
         return 'SELECT
                         *,
-                        ftn_reg_usuarios.Id as IdUsuario,
-                        ftn_reg_usuarios.Nombre as NombreUsuario
+                        ftn_reg_usuario.Id as IdUsuario,
+                        ftn_reg_usuario.Nombre as NombreUsuario
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
-                        ftn_reg_usuarios.ftn_reg_tipo_usuario_Id = :ID_TIPO_USUARIO
+                        ftn_reg_usuario.ftn_reg_tipo_usuario_Id = :ID_TIPO_USUARIO
                     ORDER BY
-                        ftn_reg_usuarios.Nombre;';
+                        ftn_reg_usuario.Nombre;';
     }
 
     /**
@@ -259,9 +259,9 @@ class Registro_listado_per extends Primitiva_listado_per {
                         (SELECT 
                             count(*)
                          FROM
-                            ftn_reg_usuarios
+                            ftn_reg_usuario
                          WHERE
-                            ftn_reg_usuarios.ftn_reg_tipo_usuario_Id = ftn_reg_tipo_usuario.Id) as Total
+                            ftn_reg_usuario.ftn_reg_tipo_usuario_Id = ftn_reg_tipo_usuario.Id) as Total
                     FROM
                         ftn_reg_tipo_usuario";
     }

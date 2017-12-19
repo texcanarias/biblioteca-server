@@ -25,7 +25,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
      */
     function __construct() {
         parent::__construct();
-        $this->Tabla = "ftn_reg_usuarios";
+        $this->Tabla = "ftn_reg_usuario";
     }
 
     private function constructorModelo() {
@@ -68,27 +68,27 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
 
     private function getSqlGet() {
         return "SELECT
-                        ftn_reg_usuarios.*
+                        ftn_reg_usuario.*
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                         INNER JOIN
                             ftn_reg_tipo_usuario
                         ON
-                            ftn_reg_usuarios.ftn_reg_tipo_usuario_Id = ftn_reg_tipo_usuario.Id
+                            ftn_reg_usuario.ftn_reg_tipo_usuario_Id = ftn_reg_tipo_usuario.Id
                             AND
                             ftn_reg_tipo_usuario.IdActivo = 1
                     WHERE
-                            ftn_reg_usuarios.IdActivo = 1
+                            ftn_reg_usuario.IdActivo = 1
                         AND
-                            ftn_reg_usuarios.IntentosLogin <= :INTENTOS_LOGIN                        
+                            ftn_reg_usuario.IntentosLogin <= :INTENTOS_LOGIN                        
                         AND
                             (
-                                ftn_reg_usuarios.Usuario = :USUARIO1
+                                ftn_reg_usuario.Usuario = :USUARIO1
                                 OR
-                                ftn_reg_usuarios.EMail = :USUARIO2
+                                ftn_reg_usuario.EMail = :USUARIO2
                              )
                         AND
-                            ftn_reg_usuarios.Pass = md5(:PASS) ";
+                            ftn_reg_usuario.Pass = md5(:PASS) ";
     }
 
     /**
@@ -118,7 +118,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return 'SELECT
                         *
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         Usuario = :NOMBRE_USUARIO ;';
     }
@@ -150,7 +150,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return 'SELECT
                         *
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         ApiKey = :API_KEY ;';
     }
@@ -182,7 +182,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return 'SELECT
                         *
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         EMail = :EMAIL ;';
     }
@@ -233,7 +233,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         $Sql = ($Item->isNuevo()) ? 'INSERT INTO ' : 'UPDATE ';
 
         $Sql .= '
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     SET
                         Usuario = :USUARIO,
                         Nombre = :NOMBRE ,
@@ -276,7 +276,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return "SELECT
                                     COUNT(Id) AS Resultados
                                 FROM
-                                    ftn_reg_usuarios
+                                    ftn_reg_usuario
                                 WHERE
                                     ftn_reg_tipo_usuario_Id = :TIPO_USUARIO";
     }
@@ -332,7 +332,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
 
     function getSqlGetFechaUltimoAcceso() {
         return "UPDATE
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     SET
                         FechaUltimoAcceso = NOW()
                     WHERE
@@ -364,7 +364,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return 'SELECT
                         *
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         Usuario = :Usuario ;';
     }
@@ -394,7 +394,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return 'SELECT
                         COUNT(Id) AS Total
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         EMail = :EMail ;';
     }
@@ -419,7 +419,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
 
     private function getSqlSetUsuarioClave() {
         return 'UPDATE
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     SET
                         Pass = :PASSWORD
                     WHERE
@@ -446,7 +446,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
 
     private function getSetImagen() {
         return 'UPDATE
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     SET
                         ImagenPerfil = :IMAGEN_PERFIL
                     WHERE
@@ -510,7 +510,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return 'SELECT
                         id
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         EMail = :EMail
                         AND
@@ -539,7 +539,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return 'SELECT
                         IntentosLogin
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         Id = :ID';
     }
@@ -558,7 +558,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
 
     private function getSqlSetNumeroIntentos() {
         return 'UPDATE
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     SET
                         IntentosLogin = :INTENTOS_LOGIN
                     WHERE
@@ -591,7 +591,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return 'SELECT
                         IdActivo AS Activo
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         Usuario = :Usuario1
                         OR
@@ -625,7 +625,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return 'SELECT
                         IntentosLogin AS IntentosLogin
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         Usuario = :Usuario1
                         OR
@@ -662,7 +662,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return 'SELECT
                         *
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         Usuario = :Usuario 
                         AND
@@ -685,7 +685,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
 
     private function getSqlAceptarLOPD() {
         return "UPDATE
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     SET
                         FechaAceptacionLOPD = NOW()
                     WHERE
@@ -710,7 +710,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
 
     private function getSqlAumentarBloqueo() {
         return 'UPDATE
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     SET
                         IntentosLogin = IntentosLogin + 1
                     WHERE
@@ -738,7 +738,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
 
     private function getSqlDesbloquear() {
         return 'UPDATE
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     SET
                         IntentosLogin = 0
                     WHERE
@@ -769,7 +769,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return "SELECT
                         count(*) AS Total
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         ftn_reg_tipo_usuario_Id = :IdTipoUsuario ";
     }
@@ -818,7 +818,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return "SELECT
                         count(Id) AS Total
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         ImagenPerfil = :ImagenPerfil ";
     }
@@ -879,7 +879,7 @@ class Registro_per extends \serve\src\common\persistencia\Primitiva_per {
         return "SELECT
                         ImagenPerfil
                     FROM
-                        ftn_reg_usuarios
+                        ftn_reg_usuario
                     WHERE
                         ImagenPerfil IS NOT NULL ";
     }
