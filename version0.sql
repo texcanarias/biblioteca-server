@@ -20,16 +20,16 @@ CREATE TABLE IF NOT EXISTS `ftn_reg_tipo_usuario` (
 
 INSERT INTO `ftn_reg_tipo_usuario` (`Id`, `Nombre`, `Descripcion`, `IdActivo`, `IdSistema`) VALUES
 (1, 'root', 'Super usuario del sistema', 1, 1),
-(2, 'admin', 'Administrador', 1, 1),
+(2, 'admin', 'Administrador', 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `ftn_reg_usuarios`
+-- Estructura de tabla para la tabla `ftn_reg_usuario`
 --
 
-DROP TABLE IF EXISTS `ftn_reg_usuarios`;
-CREATE TABLE IF NOT EXISTS `ftn_reg_usuarios` (
+DROP TABLE IF EXISTS `ftn_reg_usuario`;
+CREATE TABLE IF NOT EXISTS `ftn_reg_usuario` (
   `Id` bigint(20) unsigned NOT NULL AUTO_INCREMENT COMMENT 'Identificador único',
   `Usuario` varchar(50) COLLATE utf8_unicode_ci NOT NULL COMMENT 'Nombre de usario',
   `Pass` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL COMMENT 'Password del usuario',
@@ -53,19 +53,15 @@ CREATE TABLE IF NOT EXISTS `ftn_reg_usuarios` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Control de usuarios.' AUTO_INCREMENT=142 ;
 
 --
--- Volcado de datos para la tabla `ftn_reg_usuarios`
+-- Volcado de datos para la tabla `ftn_reg_usuario`
 --
 
-INSERT INTO `ftn_reg_usuarios` (`Id`, `Usuario`, `Pass`, `Nombre`, `Apellidos`, `FechaCreacion`, `FechaUltimoAcceso`, `FechaAceptacionLOPD`, `EMail`, `ImagenPerfil`, `ftn_reg_tipo_usuario_Id`, `IdActivo`, `IntentosLogin`, `IdIdioma`, `ApiKey`) VALUES
+INSERT INTO `ftn_reg_usuario` (`Id`, `Usuario`, `Pass`, `Nombre`, `Apellidos`, `FechaCreacion`, `FechaUltimoAcceso`, `FechaAceptacionLOPD`, `EMail`, `ImagenPerfil`, `ftn_reg_tipo_usuario_Id`, `IdActivo`, `IntentosLogin`, `IdIdioma`, `ApiKey`) VALUES
 (1, 'adclick', '267cf9dedc9ab615965f27b18b82da66', 'adclick', '', '2017-05-18 12:56:57', '2017-05-18 12:56:57', NULL, 'sistemas@adclick.es', NULL, 1, 1, 1, 'es', '267cf9dedc9ab615965f27b18b82da66'),
 (2, 'admin', '267cf9dedc9ab615965f27b18b82da66', 'administrador general NEW', '', '2017-05-18 12:56:57', '2017-05-18 12:56:57', NULL, 'antonio.tex@gmail.com', NULL, 2, 1, 1, 'es', '9eb4e4137035b974f7bb7d0cd4a7fdc9');
 
 
--- Filtros para la tabla `ftn_reg_usuarios`
+-- Filtros para la tabla `ftn_reg_usuario`
 --
-ALTER TABLE `ftn_reg_usuarios`
-  ADD CONSTRAINT `FK_usuarios_tipo_usuario` FOREIGN KEY (`ftn_reg_tipo_usuario_Id`) REFERENCES `ftn_reg_tipo_usuario` (`Id`) ON UPDATE CASCADE;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ALTER TABLE `ftn_reg_usuario`
+  ADD CONSTRAINT `FK_usuario_tipo_usuario` FOREIGN KEY (`ftn_reg_tipo_usuario_Id`) REFERENCES `ftn_reg_tipo_usuario` (`Id`) ON UPDATE CASCADE;
