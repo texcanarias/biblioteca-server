@@ -132,7 +132,7 @@ class Registro extends Euskalit {
      *  
      */
     public function desbloquear_post() {
-        include_once __DIR__ . '/../../common/phpmailer/PhpMailer.php';
+        include_once __DIR__ . '/../../../vendor/phpmailer/phpmailer/src/PHPMailer.php';
         $ApiKey = $this->getApiKey();
         $Id = $this->post("id");
 
@@ -143,7 +143,7 @@ class Registro extends Euskalit {
             $UsuarioPeticionarioWS = $per->getUsuarioPorApiKey($ApiKey);
             $TipoUsuario = $UsuarioPeticionarioWS->getFtn_reg_tipo_usuario_Id();
 
-            if (Niveles_acceso::$usuarioAdministrador == $TipoUsuario) {
+            if (serve\src\common\Niveles_acceso::$usuarioAdministrador == $TipoUsuario) {
                 $seed = $dao->getModel();
                 $seed->setId($Id);
                 $Usuario = $per->getItem($seed, $dao->getMapper(), $dao->getModel());
