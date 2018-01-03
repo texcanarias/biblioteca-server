@@ -22,6 +22,7 @@ $route['registro_1_0/recuperar'] = 'registro_1_0/registro/recuperar';
 /*
   curl -i -X POST \
   -H "Content-Type: application/json" \
+  -H "X-API-KEY: ee5e5095d84d719884d82a738cde5c46" \
   http://192.168.50.238/server/index.php/registro_1_0/desbloquear \
   -d '{"id":"2"}'
  */

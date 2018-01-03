@@ -133,38 +133,46 @@ class Registro extends Euskalit {
      */
     public function desbloquear_post() {
         include_once __DIR__ . '/../../common/phpmailer/PhpMailer.php';
-
+        $ApiKey = $this->getApiKey();
         $Id = $this->post("id");
 
         $dao = $this->getDao();
         $per = $dao->getPer();
 
         try {
-            $seed = $dao->getModel();
-            $seed->setId($Id);
-            $Usuario = $per->getItem($seed, $dao->getMapper(), $dao->getModel());
-            $per->desbloquear($Id);
+            $UsuarioPeticionarioWS = $per->getUsuarioPorApiKey($ApiKey);
+            $TipoUsuario = $UsuarioPeticionarioWS->getFtn_reg_tipo_usuario_Id();
 
-            if (!$Usuario->isNuevo()) {
-                $item = array("Nombre" => $Usuario->getApellidosNombre(),
-                    "URL" => "");
+            if (Niveles_acceso::$usuarioAdministrador == $TipoUsuario) {
+                $seed = $dao->getModel();
+                $seed->setId($Id);
+                $Usuario = $per->getItem($seed, $dao->getMapper(), $dao->getModel());
+                $per->desbloquear($Id);
 
-                $mail = \serve\src\common\phpmailer\PhpMailer::factoryPHPMailer();
-                $mail->addAddress($Usuario->getEmail());
-                $mail->AddEmbeddedImage(__DIR__ . "/../../views/common/email/logo_email.png", "logo-email", "logo_email.png");
-                $mail->Subject = "Desbloqueo de cuenta";
-                $mail->Body = $this->load->view('registro_1_0/email/cuenta_habilitada.html.php', $item, TRUE);
+                if (!$Usuario->isNuevo()) {
+                    $item = array("Nombre" => $Usuario->getApellidosNombre(),
+                        "URL" => "");
 
-                if (!$mail->send()) {
-                    $data = array('code' => '1', 'error' => 'SMTP Error', 'description' => 'SMTP Error ' . $mail->ErrorInfo);
-                    $this->set_response($data, \Restserver\Libraries\REST_Controller::HTTP_INTERNAL_SERVER_ERROR);
+                    $mail = \serve\src\common\phpmailer\PhpMailer::factoryPHPMailer();
+                    $mail->addAddress($Usuario->getEmail());
+                    $mail->AddEmbeddedImage(__DIR__ . "/../../views/common/email/logo_email.png", "logo-email", "logo_email.png");
+                    $mail->Subject = "Desbloqueo de cuenta";
+                    $mail->Body = $this->load->view('registro_1_0/email/cuenta_habilitada.html.php', $item, TRUE);
+
+                    if (!$mail->send()) {
+                        $data = array('code' => '1', 'error' => 'SMTP Error', 'description' => 'SMTP Error ' . $mail->ErrorInfo);
+                        $this->set_response($data, \Restserver\Libraries\REST_Controller::HTTP_INTERNAL_SERVER_ERROR);
+                    } else {
+                        $data = array();
+                        $this->set_response($data, \Restserver\Libraries\REST_Controller::HTTP_NO_CONTENT);
+                    }
                 } else {
-                    $data = array();
-                    $this->set_response($data, \Restserver\Libraries\REST_Controller::HTTP_NO_CONTENT);
+                    $data = array('code' => '1', 'error' => 'Incorrect id', 'description' => 'Nobody with this id');
+                    $this->set_response($data, \Restserver\Libraries\REST_Controller::HTTP_BAD_REQUEST);
                 }
             } else {
-                $data = array('code' => '1', 'error' => 'Incorrect id', 'description' => 'Nobody with this id');
-                $this->set_response($data, \Restserver\Libraries\REST_Controller::HTTP_BAD_REQUEST);
+                $data = array('code' => '1', 'error' => 'Permiso insuficientes', 'description' => 'No tiene permisos suficientes para esta acción.');
+                $this->set_response($data, \Restserver\Libraries\REST_Controller::HTTP_FORBIDDEN);
             }
         } catch (PDO\PDOException $e) {
             $data = array('code' => '-2', 'error' => 'Database error', 'description' => 'Error in database system');

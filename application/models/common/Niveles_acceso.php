@@ -10,7 +10,5 @@ namespace serve\src\common;
 class Niveles_acceso {
 
     static $usuarioAdministrador = 2;
-    static $usuarioEditor = 3;
-    static $usuarioAuditor = 4;
 
 }
