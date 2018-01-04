@@ -40,6 +40,30 @@ class Primitiva_per {
         Persistencia::destroyConn();
     }
 
+
+    /**
+     * Si lo encuentra lo devuelve, en caso contrario devuelve el modelo
+     */
+    function firstOrNew(Model_interfaz $Seed, $Mapper, Model_interfaz $Modelo){
+        try{
+            return $this->getItem(Model_interfaz $Seed, $Mapper, Model_interfaz $Modelo);
+        } catch (\PDOException $e) {
+            throw $e;
+        }
+    }
+
+    function firstOrCreate(Model_interfaz $Seed, $Mapper, Model_interfaz $Modelo){
+        try{
+            $Modelo =  $this->getItem(Model_interfaz $Seed, $Mapper, Model_interfaz $Modelo);
+            if ($Modelo->isNuevo()){
+                $this->setItem($Modelo);
+            }
+            return $Modelo;
+        } catch (\PDOException $e) {
+            throw $e;
+        }
+    }
+
     /**
      * Recoge el listado de campos relacionados con el derecho o el izquierdo
      * 
@@ -77,15 +101,14 @@ class Primitiva_per {
         return $Modelo;
     }
 
-    /**
-     * 
-     * @param object $Item
-     * @return boolean 
-     */
-    /* function esNuevo(Model_interfaz $Item) {
-      $EsNuevo = (0 == $Item->getId() || -1 == $Item->getId() || null == $Item->getId()) ? TRUE : FALSE;
-      return $EsNuevo;
-      } */
+     
+    function save(Model_interfaz $Item){
+        try{
+            return $this->setItem($Item);
+        } catch (\PDOException $ex) {
+            throw $ex;
+        }
+    }
 
     /**
      * Almacena en el sistema de pesistencia un objeto de tipo Registro_model
@@ -192,6 +215,14 @@ class Primitiva_per {
      */
     protected function postCondicionSetItemNuevo(Model_interfaz $Seed) {
         
+    }
+
+    public function delete(Model_interfaz $Seed){
+        try{
+            return $this->deleteItem(Model_interfaz $Seed);
+        } catch (\PDOException $e) {
+            throw $e;
+        }
     }
 
     /**
