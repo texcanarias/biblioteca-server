@@ -6,7 +6,7 @@ class PhpMailer {
 
     static function factoryPHPMailer() {
         date_default_timezone_set('Etc/UTC');
-        require __DIR__ . '/../../../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+        require __DIR__ . '/../../../../vendor/autoload.php';
 
         $mail = new \PHPMailer\PHPMailer\PHPMailer();
         $mail->IsSMTP();

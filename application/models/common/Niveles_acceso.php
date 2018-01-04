@@ -8,7 +8,7 @@ namespace serve\src\common;
  * @author adclick
  */
 class Niveles_acceso {
-
+    static $usuarioRoot = 1;
     static $usuarioAdministrador = 2;
 
 }

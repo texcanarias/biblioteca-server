@@ -132,7 +132,7 @@ class Registro extends Euskalit {
      *  
      */
     public function desbloquear_post() {
-        include_once __DIR__ . '/../../../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+        include_once __DIR__ . '/../../models/common/phpmailer/PhpMailer.php';
         $ApiKey = $this->getApiKey();
         $Id = $this->post("id");
 
