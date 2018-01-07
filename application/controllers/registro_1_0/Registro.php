@@ -75,7 +75,7 @@ class Registro extends Euskalit {
      *  
      */
     public function recuperar_post() {
-        include_once __DIR__ . '/../../common/phpmailer/PhpMailer.php';
+        include_once __DIR__ . '/../../models/common/phpmailer/PhpMailer.php';
 
         $Email = $this->post("email");
 
@@ -245,9 +245,8 @@ class Registro extends Euskalit {
 
             $UsuarioPeticionarioWS = $per->getUsuarioPorApiKey($ApiKey);
 
-            $isPropietarioDelPassword = $Id == $UsuarioPeticionarioWS->getId();
-
-            $isAdministrador = serve\src\registro_1_0\model\Niveles_acceso::$usuarioAdministrador == $UsuarioPeticionarioWS->getFtn_reg_tipo_usuario_Id();
+            $isPropietarioDelPassword = ($Id == $UsuarioPeticionarioWS->getId());
+            $isAdministrador = (serve\src\common\Niveles_acceso::$usuarioAdministrador == $UsuarioPeticionarioWS->getFtn_reg_tipo_usuario_Id());
             if ($isPropietarioDelPassword || $isAdministrador) {
                 if ("" == $NuevaClave) {
                     $NuevaClave = $per->NuevaClave($Id);
