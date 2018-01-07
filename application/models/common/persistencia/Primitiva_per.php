@@ -46,7 +46,7 @@ class Primitiva_per {
      */
     function firstOrNew(Model_interfaz $Seed, $Mapper, Model_interfaz $Modelo){
         try{
-            return $this->getItem(Model_interfaz $Seed, $Mapper, Model_interfaz $Modelo);
+            return $this->getItem($Seed, $Mapper, $Modelo);
         } catch (\PDOException $e) {
             throw $e;
         }
@@ -54,7 +54,7 @@ class Primitiva_per {
 
     function firstOrCreate(Model_interfaz $Seed, $Mapper, Model_interfaz $Modelo){
         try{
-            $Modelo =  $this->getItem(Model_interfaz $Seed, $Mapper, Model_interfaz $Modelo);
+            $Modelo =  $this->getItem($Seed, $Mapper, $Modelo);
             if ($Modelo->isNuevo()){
                 $this->setItem($Modelo);
             }
@@ -219,7 +219,7 @@ class Primitiva_per {
 
     public function delete(Model_interfaz $Seed){
         try{
-            return $this->deleteItem(Model_interfaz $Seed);
+            return $this->deleteItem($Seed);
         } catch (\PDOException $e) {
             throw $e;
         }

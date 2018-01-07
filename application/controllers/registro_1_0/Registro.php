@@ -2,10 +2,10 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-include_once __DIR__ . '/../euskalit_common_1_0/Euskalit.php';
+include_once __DIR__ . '/../common_1_0/Common.php';
 include_once __DIR__ . '/../../models/common/Niveles_acceso.php';
 
-class Registro extends Euskalit {
+class Registro extends Common {
 
     function __construct() {
         parent::__construct();

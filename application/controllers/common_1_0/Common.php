@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 require APPPATH . '/libraries/REST_Controller.php';
 include_once __DIR__ . '/../../models/common/Niveles_acceso.php';
 
-class Euskalit extends \Restserver\Libraries\REST_Controller {
+class Common extends \Restserver\Libraries\REST_Controller {
 
     protected $usuarioPeticionarioWS;
     protected $isAdministrador = false;
