@@ -3,6 +3,7 @@
 namespace serve\src\proveedor_1_0\model;
 
 include_once (__DIR__ . '/../common/persistencia/Model_base.php');
+include_once (__DIR__ . '/../common/Object_to_array_trait.php');
 
 /**
  * Objeto simple para almacenar datos de empresas relacionadas
@@ -11,6 +12,8 @@ include_once (__DIR__ . '/../common/persistencia/Model_base.php');
  * @created 17-feb-2015 16:09:41
  */
 class Empresa_core_model extends \serve\src\common\persistencia\Model_base {
+    use \serve\src\common\Object_to_array_trait;
+    
     //Datos básicos de un empresa
     protected $Nombre;
     protected $Codigo;
@@ -161,5 +164,26 @@ class Empresa_core_model extends \serve\src\common\persistencia\Model_base {
         return $this;
     }
 
+    protected function changeKeys($Item) {
+        $Diccionario = array("Id" => "id",
+                            "Nombre" => "nombre",
+                            "Codigo" => "codigo",
+                            "URL" => "url",
+                            "Comentarios" => "comentarios",
+                            "Direccion" => "direccion",
+                            "Ciudad" => "ciudad",
+                            "Provincia" => "provincia",
+                            "Estado" => "estado",
+                            "CP" => "cp",
+                            "PersonaContacto" => "persona_contacto",
+                            "Telefono" => "telefono",
+                            "Movil" => "movil",
+                            "Fax" => "fax",
+                            "Email" => "email");
+
+        $Item =  $this->renombrarArray($Item, $Diccionario);
+                
+        return $Item;
+    }    
 
 }

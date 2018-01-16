@@ -2,6 +2,7 @@
 namespace serve\src\cliente_1_0\model;
 
 include_once (__DIR__ . '/../proveedor_1_0/Empresa_core_model.php');
+include_once (__DIR__ . '/../common/Object_to_array_trait.php');
 
 /**
  * Objeto simple para almacenar datos de empresas relacionadas
@@ -10,6 +11,8 @@ include_once (__DIR__ . '/../proveedor_1_0/Empresa_core_model.php');
  * @created 17-feb-2015 16:09:41
  */
 class Cliente_model extends \serve\src\proveedor_1_0\model\Empresa_core_model {
+    use \serve\src\common\Object_to_array_trait;
+    
     /**
      * Días de vencimiento de las facturas
      * @var int
@@ -44,5 +47,27 @@ class Cliente_model extends \serve\src\proveedor_1_0\model\Empresa_core_model {
         return $this;
     }
 
+protected function changeKeys($Item) {
+        $Diccionario = array("Id" => "id",
+                            "Nombre" => "nombre",
+                            "Codigo" => "codigo",
+                            "URL" => "url",
+                            "Comentarios" => "comentarios",
+                            "Direccion" => "direccion",
+                            "Ciudad" => "ciudad",
+                            "Provincia" => "provincia",
+                            "Estado" => "estado",
+                            "CP" => "cp",
+                            "PersonaContacto" => "persona_contacto",
+                            "Telefono" => "telefono",
+                            "Movil" => "movil",
+                            "Fax" => "fax",
+                            "Email" => "email",
+                            "DiasVencimiento" => "dias_vencimiento",
+                            "Tipo" => "tipo");
 
+        $Item =  $this->renombrarArray($Item, $Diccionario);
+                
+        return $Item;
+    }    
 }
