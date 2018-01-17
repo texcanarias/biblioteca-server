@@ -1,5 +1,5 @@
 <?php
-namespace serve\src\proveedor_1_0\model;
+namespace serve\src\cliente_1_0\model;
 
 include_once (__DIR__ . '/../proveedor_1_0/Empresa_core_listado_model.php');
 
