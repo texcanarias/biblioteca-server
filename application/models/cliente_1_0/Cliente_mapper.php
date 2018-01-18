@@ -13,4 +13,11 @@ class Cliente_mapper extends \serve\src\proveedor_1_0\model\Empresa_core_mapper 
     public function __construct() {
         parent::__construct();
     }
+
+    public function mapper($row) {
+        $Item = parent::mapper($row);
+        $Item->setDiasVencimiento($row['DiasVencimiento']);
+        $Item->setTipo($row['Tipo']);               
+        return $Item;
+    }    
 }

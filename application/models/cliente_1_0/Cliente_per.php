@@ -14,4 +14,17 @@ class Cliente_per extends \serve\src\proveedor_1_0\model\Empresa_core_per {
         parent::__construct();
         $this->Tabla = "cliente";
     }
+
+    private function setItemBuildSql(){
+        return parent::setItemBuildSql() .
+                "dias_vencimiento = :DIAS_VENCIMIENTO,
+                tipo = :TIPO ";
+    }
+
+    
+ private function setItemBuildBindParam(\PDOStatement &$sth, Model_interfaz $Item) {
+        parent::setItemBuildBindParam($sth,$Item);
+        $sth->bindValue(':DIAS_VENCIMIENTO', $Item->getDiasVencimiento(), \PDO::PARAM_INT);
+        $sth->bindValue(':TIPO', $Item->getTipo(), \PDO::PARAM_INT);
+    }    
 }
