@@ -11,6 +11,7 @@ class Common extends \Restserver\Libraries\REST_Controller {
     protected $isAdministrador = false;
     protected $isEditor = false;
     protected $isAuditor = false;
+    protected $isGestor = false;
 
     function __construct() {
         parent::__construct();
@@ -21,6 +22,10 @@ class Common extends \Restserver\Libraries\REST_Controller {
         return $_SERVER['HTTP_X_API_KEY'];
     }
 
+    /**
+     * Se recupera el objeto que identifica el usuario peticionario
+     * @return Registro_model $this->UsuarioPeticionarioWS
+     */
     protected function getUsuarioPeticionarioWS() {
         if (null == $this->usuarioPeticionarioWS) {
             include_once __DIR__ . '/../../models/registro_1_0/Registro_dao.php';
@@ -37,6 +42,7 @@ class Common extends \Restserver\Libraries\REST_Controller {
         $this->isAdministrador = serve\src\common\Niveles_acceso::$usuarioAdministrador != $Tipo;
         $this->isEditor = serve\src\common\Niveles_acceso::$usuarioEditor != $Tipo;
         $this->isAuditor = serve\src\common\Niveles_acceso::$usuarioAuditor != $Tipo;
+        $this->isGestor = serve\src\common\Niveles_acceso::$usuarioGestor != $Tipo;
     }
 
     protected function condicionAcceso() {

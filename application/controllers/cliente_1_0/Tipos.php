@@ -12,7 +12,7 @@ class Tipos extends Common {
     }
 
     protected function condicionAcceso() {
-        return $this->isAdministrador;
+        return $this->isAdministrador || $this->isGestor; 
     }
 
     /**
@@ -20,7 +20,7 @@ class Tipos extends Common {
      * Como respuesta se enviará un email con los datos de la nueva contraseña
      */
     public function index_get() {
-
+        $this->verificarPermisosAcceso();
 
         $data = array();
         $data[] = array("id" => "1", "tipo" => "Imprenta");
