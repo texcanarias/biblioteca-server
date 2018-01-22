@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 include_once __DIR__ . '/../common_1_0/Common.php';
 include_once __DIR__ . '/../../models/common/Niveles_acceso.php';
 
-class Proveedores extends Common {
+class Cliente extends Common{
 
     function __construct() {
         parent::__construct();
@@ -100,6 +100,8 @@ class Proveedores extends Common {
         $seed->setMovil($this->post("movil"));
         $seed->setFax($this->post("fax"));
         $seed->setEmail($this->post("email"));
+        $seed->setDiasVencimiento($this->post("dias_vencimiento"));
+        $seed->setTipo($this->post("tipo"));        
         
         return $Seed;
     }
