@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 include_once __DIR__ . '/../common_1_0/Common.php';
 include_once __DIR__ . '/../../models/common/Niveles_acceso.php';
 
-class Cliente extends Common{
+class Clientes extends Common{
 
     function __construct() {
         parent::__construct();
@@ -32,7 +32,7 @@ class Cliente extends Common{
         $this->verificarPermisosAcceso();
 
         try {
-            $dao = new serve\src\proveedor_1_0\model\Proveedor_dao();
+            $dao = new serve\src\cliente_1_0\model\Cliente_dao();
             $seed = $this->generarModeloPost($dao);
             $per = $dao->getPer();
             $Item = $per->setItem($seed);
@@ -64,7 +64,7 @@ class Cliente extends Common{
      */
     public function index_put() {
         try {
-            $dao = new serve\src\proveedor_1_0\model\Proveedor_dao();
+            $dao = new serve\src\cliente_1_0\model\Cliente_dao();
             $seed = $this->generarModeloPut($dao);
             $per = $dao->getPer();
             $Item = $per->setItem($seed);
@@ -120,12 +120,12 @@ class Cliente extends Common{
     public function index_get($Id = 0) {
         try {
             if (!$Id) {
-                include_once __DIR__ . '/../../models/proveedor_1_0/Proveedor_listado_per.php';
-                $per = new serve\src\proveedor_1_0\model\Proveedor_listado_per();
-                $Item = $per->get();
+                include_once __DIR__ . '/../../models/cliente_1_0/Cliente_listado_per.php';
+                $per = new serve\src\cliente_1_0\model\Cliente_listado_per();
+                $Item = $per->getItem();
                 $this->set_response($Item->get_object_vars(), \Restserver\Libraries\REST_Controller::HTTP_OK);
             } else {
-                $dao = new serve\src\proveedor_1_0\model\Proveedor_dao();
+                $dao = new serve\src\cliente_1_0\model\Cliente_dao();
                 $Item = $dao->get($Id);
                 $this->set_response($Item->get_object_vars(), \Restserver\Libraries\REST_Controller::HTTP_OK);
             }
@@ -150,7 +150,7 @@ class Cliente extends Common{
      */
     public function index_delete() {
         try {
-            $dao = new serve\src\proveedor_1_0\model\Proveedor_dao();
+            $dao = new serve\src\proveedor_1_0\model\Cliente_dao();
             foreach ($this->delete() as $key => $value) {
                 $Valor = json_decode($key);
                 $Id = $Valor->id;

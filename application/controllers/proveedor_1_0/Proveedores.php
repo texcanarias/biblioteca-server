@@ -120,7 +120,7 @@ class Proveedores extends Common {
             if (!$Id) {
                 include_once __DIR__ . '/../../models/proveedor_1_0/Proveedor_listado_per.php';
                 $per = new serve\src\proveedor_1_0\model\Proveedor_listado_per();
-                $Item = $per->get();
+                $Item = $per->getItem();
                 $this->set_response($Item->get_object_vars(), \Restserver\Libraries\REST_Controller::HTTP_OK);
             } else {
                 $dao = new serve\src\proveedor_1_0\model\Proveedor_dao();
