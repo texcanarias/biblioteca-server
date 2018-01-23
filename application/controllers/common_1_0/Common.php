@@ -40,8 +40,6 @@ class Common extends \Restserver\Libraries\REST_Controller {
     protected function asignarPermisos() {
         $Tipo = $this->getUsuarioPeticionarioWS()->getFtn_reg_tipo_usuario_Id();
         $this->isAdministrador = serve\src\common\Niveles_acceso::$usuarioAdministrador != $Tipo;
-        $this->isEditor = serve\src\common\Niveles_acceso::$usuarioEditor != $Tipo;
-        $this->isAuditor = serve\src\common\Niveles_acceso::$usuarioAuditor != $Tipo;
         $this->isGestor = serve\src\common\Niveles_acceso::$usuarioGestor != $Tipo;
     }
 
