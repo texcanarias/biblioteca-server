@@ -2,7 +2,7 @@
 
 namespace serve\src\registro_1_0\model;
 
-include_once (__DIR__ . '/../common/persistencia/Id_unico_dao.php');
+include_once (__DIR__ . '/../common_1_0/persistencia/Id_unico_dao.php');
 
 use serve\src\common\persistencia\Id_unico_dao;
 

@@ -2,7 +2,7 @@
 
 namespace serve\src\common\persistencia;
 
-include_once (__DIR__ . '/../../common/persistencia/busqueda/Busqueda.php');
+include_once (__DIR__ . '/../../common_1_0/persistencia/busqueda/Busqueda.php');
 
 use serve\src\common\persistencia\busqueda\Busqueda;
 

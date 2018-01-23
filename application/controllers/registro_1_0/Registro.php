@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 include_once __DIR__ . '/../common_1_0/Common.php';
-include_once __DIR__ . '/../../models/common/Niveles_acceso.php';
+include_once __DIR__ . '/../../models/common_1_0/Niveles_acceso.php';
 
 class Registro extends Common {
 
@@ -75,7 +75,7 @@ class Registro extends Common {
      *  
      */
     public function recuperar_post() {
-        include_once __DIR__ . '/../../models/common/phpmailer/PhpMailer.php';
+        include_once __DIR__ . '/../../models/common_1_0/phpmailer/PhpMailer.php';
 
         $Email = $this->post("email");
 
@@ -96,7 +96,7 @@ class Registro extends Common {
 
                 $mail = \serve\src\common\phpmailer\PhpMailer::factoryPHPMailer();
                 $mail->addAddress($Email);
-                $mail->AddEmbeddedImage(__DIR__ . "/../../views/common/email/logo_email.png", "logo-email", "logo_email.png");
+                $mail->AddEmbeddedImage(__DIR__ . "/../../views/common_1_0/email/logo_email.png", "logo-email", "logo_email.png");
                 $mail->Subject = "Recuperacion de clave";
                 $mail->Body = $this->load->view('registro_1_0/email/email_nuevo_pass.html.php', $item, TRUE);
 
@@ -132,7 +132,7 @@ class Registro extends Common {
      *  
      */
     public function desbloquear_post() {
-        include_once __DIR__ . '/../../models/common/phpmailer/PhpMailer.php';
+        include_once __DIR__ . '/../../models/common_1_0/phpmailer/PhpMailer.php';
         $ApiKey = $this->getApiKey();
         $Id = $this->post("id");
 
@@ -155,7 +155,7 @@ class Registro extends Common {
 
                     $mail = \serve\src\common\phpmailer\PhpMailer::factoryPHPMailer();
                     $mail->addAddress($Usuario->getEmail());
-                    $mail->AddEmbeddedImage(__DIR__ . "/../../views/common/email/logo_email.png", "logo-email", "logo_email.png");
+                    $mail->AddEmbeddedImage(__DIR__ . "/../../views/common_1_0/email/logo_email.png", "logo-email", "logo_email.png");
                     $mail->Subject = "Desbloqueo de cuenta";
                     $mail->Body = $this->load->view('registro_1_0/email/cuenta_habilitada.html.php', $item, TRUE);
 

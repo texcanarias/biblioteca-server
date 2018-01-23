@@ -3,7 +3,7 @@
 namespace serve\src\common\time;
 
 include_once (__DIR__ . '/Fecha_interfaz.php');
-include_once (__DIR__ . '/../../common/Object_to_array_trait.php');
+include_once (__DIR__ . '/../../common_1_0/Object_to_array_trait.php');
 
 /**
  * Clase fecha

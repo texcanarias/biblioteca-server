@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 include_once __DIR__ . '/../common_1_0/Common.php';
-include_once __DIR__ . '/../../models/common/Niveles_acceso.php';
+include_once __DIR__ . '/../../models/common_1_0/Niveles_acceso.php';
 
 class Tipos extends Common {
 

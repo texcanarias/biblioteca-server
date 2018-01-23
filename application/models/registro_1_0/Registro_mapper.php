@@ -2,9 +2,9 @@
 
 namespace serve\src\registro_1_0\model;
 
-include_once (__DIR__ . '/../common/estructura/Mapper_interfaz.php');
+include_once (__DIR__ . '/../common_1_0/estructura/Mapper_interfaz.php');
 include_once (__DIR__ . '/Registro_model.php');
-include_once (__DIR__ . '/../common/time/Fecha_hora_model.php');
+include_once (__DIR__ . '/../common_1_0/time/Fecha_hora_model.php');
 
 use serve\src\common\estructura\Mapper_interfaz;
 use serve\src\registro_1_0\model\Registro_model;

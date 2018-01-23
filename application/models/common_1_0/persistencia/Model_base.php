@@ -2,7 +2,7 @@
 
 namespace serve\src\common\persistencia;
 
-include_once (__DIR__ . '/../../common/persistencia/Model_interfaz.php');
+include_once (__DIR__ . '/../../common_1_0/persistencia/Model_interfaz.php');
 
 class Model_base implements Model_interfaz {
 

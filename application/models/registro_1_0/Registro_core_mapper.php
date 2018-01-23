@@ -2,7 +2,7 @@
 
 namespace serve\src\registro_1_0\model;
 
-include_once (__DIR__ . '/../common/estructura/Mapper_interfaz.php');
+include_once (__DIR__ . '/../common_1_0/estructura/Mapper_interfaz.php');
 
 /**
  * Objeto simple para almacenar datos de registro en la sesi�n.

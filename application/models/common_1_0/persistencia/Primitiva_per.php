@@ -2,8 +2,8 @@
 
 namespace serve\src\common\persistencia;
 
-include_once (__DIR__ . '/../../common/persistencia/Persistencia.php');
-include_once (__DIR__ . '/../../common/persistencia/Model_interfaz.php');
+include_once (__DIR__ . '/../../common_1_0/persistencia/Persistencia.php');
+include_once (__DIR__ . '/../../common_1_0/persistencia/Model_interfaz.php');
 
 use serve\src\common\persistencia\Persistencia;
 

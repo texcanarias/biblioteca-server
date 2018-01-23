@@ -3,8 +3,8 @@
 namespace serve\src\registro_1_0\model;
 
 include_once (__DIR__ . '/Registro_core_model.php');
-include_once (__DIR__ . '/../common/time/Fecha_hora_model.php');
-include_once (__DIR__ . '/../common/Object_to_array_trait.php');
+include_once (__DIR__ . '/../common_1_0/time/Fecha_hora_model.php');
+include_once (__DIR__ . '/../common_1_0/Object_to_array_trait.php');
 
 use serve\src\common\time\Fecha_hora_model;
 

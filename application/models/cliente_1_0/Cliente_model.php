@@ -2,7 +2,7 @@
 namespace serve\src\cliente_1_0\model;
 
 include_once (__DIR__ . '/../proveedor_1_0/Empresa_core_model.php');
-include_once (__DIR__ . '/../common/Object_to_array_trait.php');
+include_once (__DIR__ . '/../common_1_0/Object_to_array_trait.php');
 
 /**
  * Objeto simple para almacenar datos de empresas relacionadas

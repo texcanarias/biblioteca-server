@@ -3,7 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 require APPPATH . '/libraries/REST_Controller.php';
-include_once __DIR__ . '/../../models/common/Niveles_acceso.php';
+include_once __DIR__ . '/../../models/common_1_0/Niveles_acceso.php';
 
 class Common extends \Restserver\Libraries\REST_Controller {
 

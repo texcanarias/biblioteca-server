@@ -2,7 +2,7 @@
 
 namespace serve\src\registro_1_0\model;
 
-include_once (__DIR__ . '/../common/persistencia/Model_base.php');
+include_once (__DIR__ . '/../common_1_0/persistencia/Model_base.php');
 
 /**
  * Objeto simple para almacenar datos de registro en la sesi�n.

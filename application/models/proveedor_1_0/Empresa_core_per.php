@@ -2,8 +2,8 @@
 
 namespace serve\src\euskalit_empresas_1_0\model;
 
-include_once (__DIR__ . '/../common/estructura/Primitiva_listado.php');
-include_once (__DIR__ . '/../common/persistencia/Primitiva_per.php');
+include_once (__DIR__ . '/../common_1_0/estructura/Primitiva_listado.php');
+include_once (__DIR__ . '/../common_1_0/persistencia/Primitiva_per.php');
 
 use serve\src\common\persistencia\Model_interfaz;
 
