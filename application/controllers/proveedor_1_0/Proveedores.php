@@ -48,7 +48,21 @@ class Proveedores extends Common {
 
     private function generarModeloPost($dao) {
         $seed = $dao->getModel();
-        $seed = $this->generarModelo($Seed);
+        $seed->setNombre($this->post("nombre"));
+        $seed->setCodigo($this->post("codigo"));
+        $seed->setURL($this->post("url"));
+        $seed->setComentarios($this->post("comentarios"));
+        $seed->setDireccion($this->post("direccion"));
+        $seed->setCiudad($this->post("ciudad"));
+        $seed->setProvincia($this->post("provincia"));
+        $seed->setEstado($this->post("estado"));
+        $seed->setCP($this->post("cp"));
+        $seed->setPersonaContacto($this->post("persona_contacto"));
+        $seed->setTelefono($this->post("telefono"));
+        $seed->setMovil($this->post("movil"));
+        $seed->setFax($this->post("fax"));
+        $seed->setEmail($this->post("email"));
+
         return $seed;
     }
 
@@ -81,27 +95,22 @@ class Proveedores extends Common {
     private function generarModeloPut($dao) {
         $seed = $dao->getModel();
         $seed->setId($this->put("id"));
-        $seed = $this->generarModelo($Seed);
-        return $seed;
-    }
+        $seed->setNombre($this->put("nombre"));
+        $seed->setCodigo($this->put("codigo"));
+        $seed->setURL($this->put("url"));
+        $seed->setComentarios($this->put("comentarios"));
+        $seed->setDireccion($this->put("direccion"));
+        $seed->setCiudad($this->put("ciudad"));
+        $seed->setProvincia($this->put("provincia"));
+        $seed->setEstado($this->put("estado"));
+        $seed->setCP($this->put("cp"));
+        $seed->setPersonaContacto($this->put("persona_contacto"));
+        $seed->setTelefono($this->put("telefono"));
+        $seed->setMovil($this->put("movil"));
+        $seed->setFax($this->put("fax"));
+        $seed->setEmail($this->put("email"));
 
-    private function generarModelo($Seed){
-        $seed->setNombre($this->post("nombre"));
-        $seed->setCodigo($this->post("codigo"));
-        $seed->setURL($this->post("url"));
-        $seed->setComentarios($this->post("comentarios"));
-        $seed->setDireccion($this->post("direccion"));
-        $seed->setCiudad($this->post("ciudad"));
-        $seed->setProvincia($this->post("provincia"));
-        $seed->setEstado($this->post("estado"));
-        $seed->setCP($this->post("cp"));
-        $seed->setPersonaContacto($this->post("persona_contacto"));
-        $seed->setTelefono($this->post("telefono"));
-        $seed->setMovil($this->post("movil"));
-        $seed->setFax($this->post("fax"));
-        $seed->setEmail($this->post("email"));
-        
-        return $Seed;
+        return $seed;
     }
 
     /**
