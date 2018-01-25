@@ -4,15 +4,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 include_once __DIR__ . '/../common_1_0/Common.php';
 include_once __DIR__ . '/../../models/common_1_0/Niveles_acceso.php';
+include_once __DIR__ . '/../../models/proveedor_1_0/Proveedor_dao.php';
+
 
 class Proveedores extends Common {
 
     function __construct() {
         parent::__construct();
-    }
-
-    protected function getApiKey() {
-        return $_SERVER['HTTP_X_API_KEY'];
     }
 
     protected function condicionAcceso() {
@@ -29,6 +27,8 @@ class Proveedores extends Common {
      *  
      */
     public function index_post() {
+        echo "** POST **"."\n";
+        print_r($this->post());
         $this->verificarPermisosAcceso();
 
         try {

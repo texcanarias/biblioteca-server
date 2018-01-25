@@ -3,6 +3,8 @@
 // PROVEEDOR_1_0
 //----------------------------------------------------------------
 /*
+ * 
+ * 
   INSERTAR EDICION PROVEEDOR
   curl -i -X POST \
     -H "Content-Type: application/json" \
@@ -33,7 +35,7 @@
   curl -i -X DELETE \
     -H "Content-Type: application/json" \
     -H "X-API-KEY: 21232f297a57a5a743894a0e4a801fc3" \
-    http://192.168.0.163/server/index.php/proveedor_1_0 \
+    http://192.168.0.163/server/index.php/proveedor_1_0/proveedores/ \
     -d '{"id":"4"}'
  
  *     

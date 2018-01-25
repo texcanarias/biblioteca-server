@@ -2,6 +2,7 @@
 namespace serve\src\proveedor_1_0\model;
 
 include_once (__DIR__ . '/../proveedor_1_0/Empresa_core_mapper.php');
+include_once (__DIR__ . '/../proveedor_1_0/Proveedor_model.php');
 
 /**
  * Objeto simple para almacenar datos de empresas relacionadas
@@ -12,5 +13,9 @@ include_once (__DIR__ . '/../proveedor_1_0/Empresa_core_mapper.php');
 class Proveedor_mapper extends \serve\src\proveedor_1_0\model\Empresa_core_mapper {
     public function __construct() {
         parent::__construct();
+    }
+    
+   public function constructorModelo() {
+        return new Proveedor_model();
     }
 }

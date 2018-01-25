@@ -12,10 +12,6 @@ class Clientes extends Common{
         parent::__construct();
     }
 
-    protected function getApiKey() {
-        return $_SERVER['HTTP_X_API_KEY'];
-    }
-
     protected function condicionAcceso() {
         return $this->isAdministrador || $this->isGestor;
     }
@@ -30,8 +26,10 @@ class Clientes extends Common{
      *  
      */
     public function index_post() {
-        $this->verificarPermisosAcceso();
+        echo "POST...<br />";
+print_r($this->post());
 
+        $this->verificarPermisosAcceso();
         try {
             $dao = new serve\src\cliente_1_0\model\Cliente_dao();
             $seed = $this->generarModeloPost($dao);
@@ -65,7 +63,7 @@ class Clientes extends Common{
         $seed->setEmail($this->post("email"));
         $seed->setDiasVencimiento($this->post("dias_vencimiento"));
         $seed->setTipo($this->post("tipo"));        
-
+        
         return $seed;
     }
 
@@ -162,7 +160,7 @@ class Clientes extends Common{
      */
     public function index_delete() {
         try {
-            $dao = new serve\src\proveedor_1_0\model\Cliente_dao();
+            $dao = new serve\src\cliente_1_0\model\Cliente_dao();
             foreach ($this->delete() as $key => $value) {
                 $Valor = json_decode($key);
                 $Id = $Valor->id;

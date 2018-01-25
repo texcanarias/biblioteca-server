@@ -9,8 +9,6 @@ class Common extends \Restserver\Libraries\REST_Controller {
 
     protected $usuarioPeticionarioWS;
     protected $isAdministrador = false;
-    protected $isEditor = false;
-    protected $isAuditor = false;
     protected $isGestor = false;
 
     function __construct() {
@@ -44,7 +42,7 @@ class Common extends \Restserver\Libraries\REST_Controller {
     }
 
     protected function condicionAcceso() {
-        return $this->isEditor || $this->isAuditor;
+        //return $this->isEditor || $this->isAuditor;
     }
 
     protected function verificarPermisosAcceso() {
