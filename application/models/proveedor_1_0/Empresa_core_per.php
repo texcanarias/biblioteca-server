@@ -1,6 +1,6 @@
 <?php
 
-namespace serve\src\euskalit_empresas_1_0\model;
+namespace serve\src\proveedor_1_0\model;
 
 include_once (__DIR__ . '/../common_1_0/estructura/Primitiva_listado.php');
 include_once (__DIR__ . '/../common_1_0/persistencia/Primitiva_per.php');
@@ -10,7 +10,7 @@ use serve\src\common\persistencia\Model_interfaz;
 /**
  * Sistema de persistencia del Registro
  */
-class Empresa_per extends \serve\src\common\persistencia\Primitiva_per {
+class Empresa_core_per extends \serve\src\common\persistencia\Primitiva_per {
 
     /**
      * Constructor por defecto.
@@ -54,7 +54,7 @@ class Empresa_per extends \serve\src\common\persistencia\Primitiva_per {
         }
     }*/
 
-    private function setItemBuildSql(){
+    protected function setItemBuildSql(){
         return "nombre = :NOMBRE,
                 codigo = :CODIGO,
                 Direccion = :DIRECCION,
@@ -72,7 +72,7 @@ class Empresa_per extends \serve\src\common\persistencia\Primitiva_per {
     }
 
     
- private function setItemBuildBindParam(\PDOStatement &$sth, Model_interfaz $Item) {
+ protected function setItemBuildBindParam(\PDOStatement &$sth, Model_interfaz $Item) {
         $sth->bindValue(':NOMBRE', $Item->getNombre(), \PDO::PARAM_STR);
         $sth->bindValue(':CODIGO', $Item->getCodigo(), \PDO::PARAM_STR);
         $sth->bindValue(':DIRECCION', $Item->getDireccion(), \PDO::PARAM_STR);

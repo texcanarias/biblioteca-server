@@ -1,5 +1,5 @@
 <?php
-namespace serve\src\euskalit_empresas_1_0\model;
+namespace serve\src\proveedor_1_0\model;
 
 include_once (__DIR__ .'/../common_1_0/estructura/Mapper_interfaz.php');
 include_once (__DIR__.'/Empresa_model.php');
