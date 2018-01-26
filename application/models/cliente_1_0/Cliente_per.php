@@ -17,8 +17,8 @@ class Cliente_per extends \serve\src\proveedor_1_0\model\Empresa_core_per {
 
     protected function setItemBuildSql(){
         return parent::setItemBuildSql() .
-                "dias_vencimiento = :DIAS_VENCIMIENTO,
-                tipo = :TIPO ";
+                ",DiasVencimiento = :DIAS_VENCIMIENTO
+                ,Tipo = :TIPO ";
     }
 
     

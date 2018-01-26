@@ -28,5 +28,5 @@ class Tipos extends Common {
         $data[] = array("id" => "3", "tipo" => "Repografía");
         $this->set_response($data, \Restserver\Libraries\REST_Controller::HTTP_OK);
     }
-
+  
 }

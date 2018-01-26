@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 include_once __DIR__ . '/../common_1_0/Common.php';
 include_once __DIR__ . '/../../models/common_1_0/Niveles_acceso.php';
-include_once __DIR__ . '/../../models/cliente_1_0/Cliente_dao.php';
+
 
 class Clientes extends Common{
 
@@ -15,7 +15,12 @@ class Clientes extends Common{
     protected function condicionAcceso() {
         return $this->isAdministrador || $this->isGestor;
     }
-
+    
+    protected function getDao() {
+        include_once __DIR__ . '/../../models/cliente_1_0/Cliente_dao.php';
+        return new serve\src\cliente_1_0\model\Cliente_dao();
+    }
+    
     /**
      * Registra los datos de una empresa
      * 
@@ -26,12 +31,9 @@ class Clientes extends Common{
      *  
      */
     public function index_post() {
-        echo "POST...<br />";
-print_r($this->post());
-
         $this->verificarPermisosAcceso();
         try {
-            $dao = new serve\src\cliente_1_0\model\Cliente_dao();
+            $dao = $this->getDao();
             $seed = $this->generarModeloPost($dao);
             $per = $dao->getPer();
             $Item = $per->setItem($seed);
@@ -79,7 +81,7 @@ print_r($this->post());
      */
     public function index_put() {
         try {
-            $dao = new serve\src\cliente_1_0\model\Cliente_dao();
+            $dao = $this->getDao();
             $seed = $this->generarModeloPut($dao);
             $per = $dao->getPer();
             $Item = $per->setItem($seed);
@@ -135,7 +137,7 @@ print_r($this->post());
                 $Item = $per->getItem();
                 $this->set_response($Item->get_object_vars(), \Restserver\Libraries\REST_Controller::HTTP_OK);
             } else {
-                $dao = new serve\src\cliente_1_0\model\Cliente_dao();
+                $dao = $this->getDao();
                 $Item = $dao->get($Id);
                 $this->set_response($Item->get_object_vars(), \Restserver\Libraries\REST_Controller::HTTP_OK);
             }
@@ -160,7 +162,7 @@ print_r($this->post());
      */
     public function index_delete() {
         try {
-            $dao = new serve\src\cliente_1_0\model\Cliente_dao();
+            $dao = $this->getDao();
             foreach ($this->delete() as $key => $value) {
                 $Valor = json_decode($key);
                 $Id = $Valor->id;

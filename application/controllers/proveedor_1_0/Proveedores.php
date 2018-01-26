@@ -27,8 +27,6 @@ class Proveedores extends Common {
      *  
      */
     public function index_post() {
-        echo "** POST **"."\n";
-        print_r($this->post());
         $this->verificarPermisosAcceso();
 
         try {

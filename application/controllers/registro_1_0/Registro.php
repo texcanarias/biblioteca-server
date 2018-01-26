@@ -132,7 +132,6 @@ class Registro extends Common {
      *  
      */
     public function desbloquear_post() {
-        include_once __DIR__ . '/../../models/common_1_0/phpmailer/PhpMailer.php';
         $ApiKey = $this->getApiKey();
         $Id = $this->post("id");
 
@@ -152,7 +151,8 @@ class Registro extends Common {
                 if (!$Usuario->isNuevo()) {
                     $item = array("Nombre" => $Usuario->getApellidosNombre(),
                         "URL" => "");
-
+                    
+                    include_once __DIR__ . '/../../models/common_1_0/phpmailer/PhpMailer.php';
                     $mail = \serve\src\common\phpmailer\PhpMailer::factoryPHPMailer();
                     $mail->addAddress($Usuario->getEmail());
                     $mail->AddEmbeddedImage(__DIR__ . "/../../views/common_1_0/email/logo_email.png", "logo-email", "logo_email.png");
