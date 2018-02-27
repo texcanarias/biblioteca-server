@@ -1,4 +1,4 @@
-<?php
+roto<?php
 namespace serve\src\familia_1_0\model;
 
 include_once (__DIR__ .'/../common_1_0/estructura/Mapper_interfaz.php');
@@ -18,9 +18,9 @@ class Familia_listado_mapper implements Mapper_interfaz{
     
     public function mapper($row) {
         $Item = $this->constructorModelo();
-        $Item->setId($row['Id']);
+        $Item->setId($row['Codigo']);
         $Item->setNombre($row['Nombre']);
-        $Item->setIdPadre($row['IdPadre']);
+        $Item->setIdPadre($row['CodigoPadre']);
 
         return $Item;
     }

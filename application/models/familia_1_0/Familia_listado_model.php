@@ -16,11 +16,14 @@ class Familia_listado_model extends \serve\src\common\persistencia\Model_base {
     
     protected $IdPadre;
     protected $Nombre;
+    protected $Descripcion;
     protected $Hijos;
+    protected $Listable;
     
     public function __construct() {
         parent::__construct();
         $this->Hijos = [];
+        $this->Listable = TRUE;
     }    
 
     
@@ -52,15 +55,38 @@ class Familia_listado_model extends \serve\src\common\persistencia\Model_base {
 
     function setIdPadre($IdPadre) {
         $this->IdPadre = $IdPadre;
+        return $this;
     }
 
-        
+    function getDescripcion() {
+        return $this->Descripcion;
+    }
+
+    function setDescripcion($Descripcion) {
+        $this->Descripcion = $Descripcion;
+        return $this;
+    }
+
+    public function getListable() {
+        return $this->Listable;
+    }
+
+    public function setListable($Listable) {
+        $this->Listable = $Listable;
+        return $this;
+    }
+
+                
     protected function changeKeys($Item) {
         $Diccionario = array("Id" => "id",
-                            "Nombre" => "nombre");
+                            "Nombre" => "nombre",
+                            "Descripcion" => "descripcion",
+                            "Listable" => "listable");
 
         $Item =  $this->renombrarArray($Item, $Diccionario);
-                
+
+        $Item = $this->adaptarBooleano($Item, ["Listable"]);
+        
         return $Item;
     }    
 }
