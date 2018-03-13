@@ -7,7 +7,7 @@ include_once __DIR__ . '/../../models/common_1_0/Niveles_acceso.php';
 include_once __DIR__ . '/../../models/proveedor_1_0/Proveedor_dao.php';
 
 
-class Proveedores extends Common {
+class Biblioteca extends Common {
 
     function __construct() {
         parent::__construct();
