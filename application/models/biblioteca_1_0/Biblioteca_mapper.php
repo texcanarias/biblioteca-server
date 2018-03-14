@@ -1,11 +1,8 @@
 <?php
 
-namespace serve\src\proveedor_1_0\model;
+namespace serve\src\biblioteca_1_0\model;
 
 include_once (__DIR__ . '/../common_1_0/estructura/Mapper_interfaz.php');
-/*include_once (__DIR__ . '/Empresa_model.php');
-include_once (__DIR__ . '/Usuario_model.php');
-include_once (__DIR__ . '/Usuario_dao.php');*/
 
 use serve\src\common\estructura\Mapper_interfaz;
 
@@ -13,7 +10,7 @@ use serve\src\common\estructura\Mapper_interfaz;
  * Tiene los datos básicos de registro de cada uno de los usuarios
  * del sistema.
  */
-abstract class Empresa_core_mapper implements Mapper_interfaz {
+abstract class Bibilioteca_core_mapper implements Mapper_interfaz {
 
     public function __construct() {
     }

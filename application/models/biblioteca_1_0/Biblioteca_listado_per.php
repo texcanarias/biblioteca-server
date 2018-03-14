@@ -1,6 +1,6 @@
 <?php
 
-namespace serve\src\proveedor_1_0\model;
+namespace serve\src\biblioteca_1_0\model;
 
 include_once (__DIR__ . '/../common_1_0/estructura/Primitiva_listado.php');
 include_once (__DIR__ . '/../common_1_0/persistencia/Primitiva_listado_per.php');
@@ -8,7 +8,7 @@ include_once (__DIR__ . '/../common_1_0/persistencia/Primitiva_listado_per.php')
 /**
  * Sistema de persistencia del Registro
  */
-class Empresa_core_listado_per extends \serve\src\common\persistencia\Primitiva_listado_per {
+class Bibilioteca_core_listado_per extends \serve\src\common\persistencia\Primitiva_listado_per {
 
     /**
      * Constructor por defecto.
@@ -20,8 +20,8 @@ class Empresa_core_listado_per extends \serve\src\common\persistencia\Primitiva_
 
     function factoriaMappeador(){
         if(!$this->Mappeador){
-            include_once (__DIR__.'/Empresa_core_listado_mapper.php');
-            $this->Mappeador = new Empresa_core_listado_mapper();
+            include_once (__DIR__.'/Bibilioteca_core_listado_mapper.php');
+            $this->Mappeador = new Bibilioteca_core_listado_mapper();
         }
         return $this->Mappeador;
     }

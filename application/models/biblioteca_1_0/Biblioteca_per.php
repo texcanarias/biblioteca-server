@@ -1,6 +1,6 @@
 <?php
 
-namespace serve\src\proveedor_1_0\model;
+namespace serve\src\biblioteca_1_0\model;
 
 include_once (__DIR__ . '/../common_1_0/estructura/Primitiva_listado.php');
 include_once (__DIR__ . '/../common_1_0/persistencia/Primitiva_per.php');
@@ -10,51 +10,17 @@ use serve\src\common\persistencia\Model_interfaz;
 /**
  * Sistema de persistencia del Registro
  */
-class Empresa_core_per extends \serve\src\common\persistencia\Primitiva_per {
+class Bibilioteca_core_per extends \serve\src\common\persistencia\Primitiva_per {
 
     /**
      * Constructor por defecto.
      */
     function __construct() {
         parent::__construct();
-        $this->Tabla = ""; 
+        $this->Tabla = "";
     }
 
-   /* function setItem(Model_interfaz $Item) {
-        try {
-            return ( $Item->isNuevo()) ? $this->setItemInsert($Item) : $this->setItemUpdate($Item);
-        } catch (\PDOException $e) {
-            throw $e;
-        }
-    }
-
-    function setItemInsert(Model_interfaz $Item) {
-        try {
-            $Sql = "INSERT INTO ".$this->Tabla." SET ".$this->PDOCampos();
-            $sth = $this->Conn->prepare($Sql);
-            $this->bind($sth, $Item);
-            $sth->execute();
-            $Item->setId($this->Conn->lastInsertId());
-            return $Item;
-        } catch (\PDOException $e) {
-            throw $e;
-        }
-    }
-
-    function setItemUpdate(Model_interfaz $Item) {
-        try {
-            $Sql = "UPDATE ".$this->Tabla." SET ".$this->PDOCampos()." WHERE Id = :ID ";
-            $sth = $this->Conn->prepare($Sql);
-            $sth->bindValue(':ID', $Item->getId(), \PDO::PARAM_INT);
-            $this->bind($sth, $Item);
-            $sth->execute();
-            return $Item;
-        } catch (\PDOException $e) {
-            throw $e;
-        }
-    }*/
-
-    protected function setItemBuildSql(){
+    protected function setItemBuildSql() {
         return "nombre = :NOMBRE,
                 codigo = :CODIGO,
                 Direccion = :DIRECCION,
@@ -71,8 +37,7 @@ class Empresa_core_per extends \serve\src\common\persistencia\Primitiva_per {
                 Comentarios = :COMENTARIOS ";
     }
 
-    
- protected function setItemBuildBindParam(\PDOStatement &$sth, Model_interfaz $Item) {
+    protected function setItemBuildBindParam(\PDOStatement &$sth, Model_interfaz $Item) {
         $sth->bindValue(':NOMBRE', $Item->getNombre(), \PDO::PARAM_STR);
         $sth->bindValue(':CODIGO', $Item->getCodigo(), \PDO::PARAM_STR);
         $sth->bindValue(':DIRECCION', $Item->getDireccion(), \PDO::PARAM_STR);
@@ -88,4 +53,5 @@ class Empresa_core_per extends \serve\src\common\persistencia\Primitiva_per {
         $sth->bindValue(':URL', $Item->getUrl(), \PDO::PARAM_STR);
         $sth->bindValue(':COMENTARIOS', $Item->getComentarios(), \PDO::PARAM_STR);
     }
+
 }

@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 include_once __DIR__ . '/../common_1_0/Common.php';
 include_once __DIR__ . '/../../models/common_1_0/Niveles_acceso.php';
-include_once __DIR__ . '/../../models/proveedor_1_0/Proveedor_dao.php';
+include_once __DIR__ . '/../../models/biblioteca_1_0/Biblioteca_dao.php';
 
 
 class Biblioteca extends Common {
@@ -30,7 +30,7 @@ class Biblioteca extends Common {
         $this->verificarPermisosAcceso();
 
         try {
-            $dao = new serve\src\proveedor_1_0\model\Proveedor_dao();
+            $dao = new serve\src\biblioteca_1_0\model\Biblioteca_dao();
             $seed = $this->generarModeloPost($dao);
             $per = $dao->getPer();
             $Item = $per->setItem($seed);
@@ -76,7 +76,7 @@ class Biblioteca extends Common {
      */
     public function index_put() {
         try {
-            $dao = new serve\src\proveedor_1_0\model\Proveedor_dao();
+            $dao = new serve\src\biblioteca_1_0\model\Biblioteca_dao();
             $seed = $this->generarModeloPut($dao);
             $per = $dao->getPer();
             $Item = $per->setItem($seed);
@@ -112,7 +112,7 @@ class Biblioteca extends Common {
     }
 
     /**
-     * Lista los proveedores
+     * Lista los bibliotecaes
      * 
      * @param $Id integer Identificador de la empresa
      * 
@@ -125,12 +125,12 @@ class Biblioteca extends Common {
     public function index_get($Id = 0) {
         try {
             if (!$Id) {
-                include_once __DIR__ . '/../../models/proveedor_1_0/Proveedor_listado_per.php';
-                $per = new serve\src\proveedor_1_0\model\Proveedor_listado_per();
+                include_once __DIR__ . '/../../models/biblioteca_1_0/Biblioteca_listado_per.php';
+                $per = new serve\src\biblioteca_1_0\model\Biblioteca_listado_per();
                 $Item = $per->getItem();
                 $this->set_response($Item->get_object_vars(), \Restserver\Libraries\REST_Controller::HTTP_OK);
             } else {
-                $dao = new serve\src\proveedor_1_0\model\Proveedor_dao();
+                $dao = new serve\src\biblioteca_1_0\model\Biblioteca_dao();
                 $Item = $dao->get($Id);
                 $this->set_response($Item->get_object_vars(), \Restserver\Libraries\REST_Controller::HTTP_OK);
             }
@@ -155,7 +155,7 @@ class Biblioteca extends Common {
      */
     public function index_delete() {
         try {
-            $dao = new serve\src\proveedor_1_0\model\Proveedor_dao();
+            $dao = new serve\src\biblioteca_1_0\model\Biblioteca_dao();
             foreach ($this->delete() as $key => $value) {
                 $Valor = json_decode($key);
                 $Id = $Valor->id;
