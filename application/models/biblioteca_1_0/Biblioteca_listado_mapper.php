@@ -14,16 +14,5 @@ class Bibilioteca_core_listado_mapper implements Mapper_interfaz{
     public function constructorModelo() {
         return new Bibilioteca_core_listado_model();
     }
-    
-    
-    public function mapper($row) {
-        $Item = $this->constructorModelo();
-        $Item->setId($row['id']);
-        $Item->setNombre($row['nombre']);
-        $Item->setCodigo($row['codigo']);
-        $Item->setTelefono($row['Telefono']);
-
-        return $Item;
-    }
-
+   
 }

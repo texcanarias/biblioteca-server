@@ -20,26 +20,9 @@ abstract class Bibilioteca_core_mapper implements Mapper_interfaz {
     public function mapper($row) {
         $Item = $this->constructorModelo();
         $Item->setId($row['id']);
-
-        //Datos básicos de un empresa
         $Item->setNombre($row['nombre']);
-        $Item->setCodigo($row['codigo']);
-        $Item->setURL($row['URL']);
-        $Item->setComentarios($row['Comentarios']);
-
-        //Localización
-        $Item->setDireccion($row['Direccion']);
-        $Item->setCiudad($row['Ciudad']);
-        $Item->setProvincia($row['Provincia']);
-        $Item->setEstado($row['Estado']);
-        $Item->setCP($row['CP']);
-
-        //Persona de contacto
-        $Item->setPersonaContacto($row['PersonaContacto']);
-        $Item->setTelefono($row['Telefono']);
-        $Item->setMovil($row['Movil']);
-        $Item->setFax($row['Fax']);
-        $Item->setEmail($row['email']);
+        $Item->setAutor($row['autor']);
+        $Item->setLeido($row['leido']);
 
         return $Item;
     }
