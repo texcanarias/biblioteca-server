@@ -135,7 +135,7 @@ class Primitiva_per {
             $sth = $this->Conn->prepare($Sql);
 
             ($EsNuevo) ? $this->setItemBuildBindParamInsert($sth, $Item) : $this->setItemBuildBindParamUpdate($sth, $Item);
-
+            
             $sth->execute();
 
             //Recuperamos el Id para meter los hijos

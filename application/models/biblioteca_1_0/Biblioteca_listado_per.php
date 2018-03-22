@@ -8,20 +8,20 @@ include_once (__DIR__ . '/../common_1_0/persistencia/Primitiva_listado_per.php')
 /**
  * Sistema de persistencia del Registro
  */
-class Bibilioteca_core_listado_per extends \serve\src\common\persistencia\Primitiva_listado_per {
+class Biblioteca_listado_per extends \serve\src\common\persistencia\Primitiva_listado_per {
 
     /**
      * Constructor por defecto.
      */
     function __construct() {
         parent::__construct();
-        $this->Tabla = ""; 
+        $this->Tabla = "bib_biblioteca"; 
     }
 
     function factoriaMappeador(){
         if(!$this->Mappeador){
-            include_once (__DIR__.'/Bibilioteca_core_listado_mapper.php');
-            $this->Mappeador = new Bibilioteca_core_listado_mapper();
+            include_once (__DIR__.'/Biblioteca_listado_mapper.php');
+            $this->Mappeador = new Biblioteca_listado_mapper();
         }
         return $this->Mappeador;
     }

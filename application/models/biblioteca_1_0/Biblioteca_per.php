@@ -10,14 +10,14 @@ use serve\src\common\persistencia\Model_interfaz;
 /**
  * Sistema de persistencia del Registro
  */
-class Bibilioteca_core_per extends \serve\src\common\persistencia\Primitiva_per {
+class Biblioteca_per extends \serve\src\common\persistencia\Primitiva_per {
 
     /**
      * Constructor por defecto.
      */
     function __construct() {
         parent::__construct();
-        $this->Tabla = "";
+        $this->Tabla = "bib_biblioteca";
     }
 
     protected function setItemBuildSql() {

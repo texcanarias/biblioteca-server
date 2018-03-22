@@ -6,7 +6,7 @@
 /*
   curl -i -X POST \
   -H "Content-Type: application/json" \
-  http://192.168.1.5/biblioteca/index.php/registro_1_0/login \
+  http://localhost/biblioteca/index.php/registro_1_0/login \
   -d '{"usuario":"admin","pass":"admin"}'
  */
 $route['registro_1_0/login'] = 'registro_1_0/registro/login';
