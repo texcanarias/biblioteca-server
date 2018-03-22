@@ -1,45 +1,45 @@
 <?php
 //----------------------------------------------------------------
-// PROVEEDOR_1_0
+// BIBLIOTECA_1_0
 //----------------------------------------------------------------
 /*
  * 
  * 
-  INSERTAR EDICION PROVEEDOR
+  INSERTAR EDICION BIBLIOTECA
   curl -i -X POST \
     -H "Content-Type: application/json" \
     -H "X-API-KEY: 21232f297a57a5a743894a0e4a801fc3" \
     http://192.168.0.163/server/index.php/biblioteca_1_0 \
-    -d '{"nombre":"EMpresa A","codigo":"2013","direccion":"Calle de arriba","ciudad":"BCN","provincia":"BCN","estado":"Spain","cp":"35012","persona_contacto":"Juan Diego","telefono":"666","movil":"666","fax":"666","email":"Enterprise A","url":"www.enterprise.com","comentarios":"comentarios"}'
+    -d '{"nombre":"El Quijote","autor":"Cervantes","leido":"true"}'
 
-    EDITAR EDICION PROVEEDOR
+    EDITAR EDICION BIBLIOTECA
   curl -i -X PUT \
     -H "Content-Type: application/json" \
     -H "X-API-KEY: 21232f297a57a5a743894a0e4a801fc3" \
     http://192.168.0.163/server/index.php/biblioteca_1_0 \
-    -d '{"id":"45","nombre":"EMpresa ABC","codigo":"2013","direccion":"Calle de arriba","ciudad":"BCN","provincia":"BCN","estado":"Spain","cp":"35012","persona_contacto":"Juan Diego","telefono":"666","movil":"666","fax":"666","email":"Enterprise A","url":"www.enterprise.com","comentarios":"comentarios"}'
+    -d '{"id":"4","nombre":"El Quijote","autor":"Cervantes","leido":"true"}'
 
-    LISTAR EDICION PROVEEDOR
+    LISTAR BIBLIOTECA
   curl -i -X GET \
     -H "Content-Type: application/json" \
     -H "X-API-KEY: 21232f297a57a5a743894a0e4a801fc3" \
-    http://192.168.0.163/server/index.php/biblioteca_1_0/bibliotecaes    
+    http://192.168.0.163/server/index.php/biblioteca_1_0/bibliotecas    
 
-    RECUPERAR EDICION PROVEEDOR
+    RECUPERAR EDICION BIBLIOTECA
   curl -i -X GET \
     -H "Content-Type: application/json" \
     -H "X-API-KEY: 21232f297a57a5a743894a0e4a801fc3" \
-    http://192.168.0.163/server/index.php/biblioteca_1_0/bibliotecaes/4    
+    http://192.168.0.163/server/index.php/biblioteca_1_0/bibliotecas/4    
 
-    ELIMINAR EDICION PROVEEDOR
+    ELIMINAR EDICION BIBLIOTECA
   curl -i -X DELETE \
     -H "Content-Type: application/json" \
     -H "X-API-KEY: 21232f297a57a5a743894a0e4a801fc3" \
-    http://192.168.0.163/server/index.php/biblioteca_1_0/bibliotecaes/ \
+    http://192.168.0.163/server/index.php/biblioteca_1_0/bibliotecas/ \
     -d '{"id":"4"}'
  
  *     
  */
-$route['biblioteca_1_0/bibliotecaes/(:num)'] = 'biblioteca_1_0/bibliotecaes/$1';
-$route['biblioteca_1_0/bibliotecaes'] = 'biblioteca_1_0/bibliotecaes';
-$route['biblioteca_1_0'] = 'biblioteca_1_0/bibliotecaes';
+$route['biblioteca_1_0/bibliotecas/(:num)'] = 'biblioteca_1_0/bibliotecas/$1';
+$route['biblioteca_1_0/bibliotecas'] = 'biblioteca_1_0/bibliotecas';
+$route['biblioteca_1_0'] = 'biblioteca_1_0/bibliotecas';
