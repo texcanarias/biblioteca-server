@@ -65,11 +65,6 @@ $route['translate_uri_dashes'] = FALSE;
 require (__DIR__ .'/../controllers/registro_1_0/routes.php'); 
 
 //----------------------------------------------------------------
-// CLIENTE_1_0
+// BIBLIOTECA_1_0
 //----------------------------------------------------------------
-require (__DIR__ .'/../controllers/cliente_1_0/routes.php'); 
-
-//----------------------------------------------------------------
-// PROVEEDOR_1_0
-//----------------------------------------------------------------
-require (__DIR__ .'/../controllers/proveedor_1_0/routes.php'); 
+require (__DIR__ .'/../controllers/biblioteca_1_0/routes.php'); 
