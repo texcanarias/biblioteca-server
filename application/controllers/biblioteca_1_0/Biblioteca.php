@@ -48,6 +48,7 @@ class Biblioteca extends Common {
         $seed = $dao->getModel();
         $seed->setNombre($this->post("nombre"));
         $seed->setAutor($this->post("autor"));
+        $seed->setPosicion($this->post("posicion"));
         $seed->setLeido($this->post("leido"));
 
         return $seed;
@@ -84,6 +85,7 @@ class Biblioteca extends Common {
         $seed->setId($this->put("id"));
         $seed->setNombre($this->put("nombre"));
         $seed->setAutor($this->put("autor"));
+        $seed->setPosicion($this->put("posicion"));
         $seed->setLeido($this->put("leido"));
 
         return $seed;

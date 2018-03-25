@@ -10,14 +10,14 @@
     -H "Content-Type: application/json" \
     -H "X-API-KEY: 21232f297a57a5a743894a0e4a801fc3" \
     http://localhost/biblioteca/index.php/biblioteca_1_0 \
-    -d '{"nombre":"El Quijote","autor":"Cervantes","leido":"1"}'
+    -d '{"nombre":"El Quijote","autor":"Cervantes","posicion":"XXX","leido":"1"}'
 
     EDITAR EDICION BIBLIOTECA
   curl -i -X PUT \
     -H "Content-Type: application/json" \
     -H "X-API-KEY: 21232f297a57a5a743894a0e4a801fc3" \
     http://localhost/biblioteca/index.php/biblioteca_1_0 \
-    -d '{"id":"1","nombre":"El Quijote","autor":"Cervantes","leido":"0"}'
+    -d '{"id":"1","nombre":"El Quijote","autor":"Cervantes","posicion":"XX","leido":"0"}'
 
     LISTAR BIBLIOTECA
   curl -i -X GET \
@@ -36,7 +36,7 @@
     -H "Content-Type: application/json" \
     -H "X-API-KEY: 21232f297a57a5a743894a0e4a801fc3" \
     http://localhost/biblioteca/index.php/biblioteca_1_0/bibliotecas/ \
-    -d '{"id":"4"}'
+    -d '{"id":"1"}'
  
  *     
  */

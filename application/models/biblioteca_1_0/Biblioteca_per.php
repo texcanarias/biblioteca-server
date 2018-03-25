@@ -23,12 +23,14 @@ class Biblioteca_per extends \serve\src\common\persistencia\Primitiva_per {
     protected function setItemBuildSql() {
         return "nombre = :NOMBRE,
                 autor = :AUTOR,
+                posicion = :POSICION,
                 leido = :LEIDO ";
     }
 
     protected function setItemBuildBindParam(\PDOStatement &$sth, Model_interfaz $Item) {
         $sth->bindValue(':NOMBRE', $Item->getNombre(), \PDO::PARAM_STR);
         $sth->bindValue(':AUTOR', $Item->getAutor(), \PDO::PARAM_STR);
+        $sth->bindValue(':POSICION', $Item->getPosicion(), \PDO::PARAM_STR);
         $sth->bindValue(':LEIDO', $Item->getLeido(), \PDO::PARAM_BOOL);
     }
 

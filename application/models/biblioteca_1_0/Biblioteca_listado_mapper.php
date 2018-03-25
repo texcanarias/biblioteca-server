@@ -20,6 +20,7 @@ class Biblioteca_listado_mapper implements Mapper_interfaz{
         $Item->setId($row['id']);
         $Item->setNombre($row['nombre']);
         $Item->setAutor($row['autor']);
+        $Item->setPosicion($row['posicion']);
         $Item->setLeido($row['leido']);
 
         return $Item;

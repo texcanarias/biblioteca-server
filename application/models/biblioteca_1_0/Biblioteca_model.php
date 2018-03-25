@@ -16,6 +16,7 @@ class Biblioteca_model extends \serve\src\common\persistencia\Model_base {
     
     protected $Nombre;
     protected $Autor;
+    protected $Posicion;
     protected $Leido;
     
     public function __construct() {
@@ -36,20 +37,34 @@ class Biblioteca_model extends \serve\src\common\persistencia\Model_base {
 
     function setNombre($Nombre) {
         $this->Nombre = $Nombre;
+        return $this;
     }
 
     function setAutor($Autor) {
         $this->Autor = $Autor;
+        return $this;
     }
 
     function setLeido($Leido) {
         $this->Leido = $Leido;
+        return $this;
+    }
+    
+    public function getPosicion() {
+        return $this->Posicion;
     }
 
+    public function setPosicion($Posicion) {
+        $this->Posicion = $Posicion;
+        return $this;
+    }
+
+    
     protected function changeKeys($Item) {
         $Diccionario = array("Id" => "id",
                             "Nombre" => "nombre",
                             "Autor" => "autor",
+                            "Posicion" => "posicion",
                             "Leido" => "leido");                
         return $Item;
     }    
