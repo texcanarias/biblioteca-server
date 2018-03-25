@@ -112,6 +112,9 @@ class Biblioteca extends Common {
             } else {
                 $dao = new serve\src\biblioteca_1_0\model\Biblioteca_dao();
                 $Item = $dao->get($Id);
+                
+                print_r($Item);
+                
                 $this->set_response($Item->get_object_vars(), \Restserver\Libraries\REST_Controller::HTTP_OK);
             }
         } catch (PDO\PDOException $e) {
