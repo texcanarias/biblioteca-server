@@ -65,7 +65,8 @@ class Biblioteca_model extends \serve\src\common\persistencia\Model_base {
                             "Nombre" => "nombre",
                             "Autor" => "autor",
                             "Posicion" => "posicion",
-                            "Leido" => "leido");                
+                            "Leido" => "leido");    
+        $Item =  $this->renombrarArray($Item, $Diccionario);
         return $Item;
     }    
 
