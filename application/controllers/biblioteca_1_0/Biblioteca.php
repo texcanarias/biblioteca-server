@@ -50,6 +50,7 @@ class Biblioteca extends Common {
         $seed->setAutor($this->post("autor"));
         $seed->setPosicion($this->post("posicion"));
         $seed->setLeido($this->post("leido"));
+        $seed->setOrigen($this->post("origen"));
 
         return $seed;
     }
@@ -87,6 +88,7 @@ class Biblioteca extends Common {
         $seed->setAutor($this->put("autor"));
         $seed->setPosicion($this->put("posicion"));
         $seed->setLeido($this->put("leido"));
+        $seed->setOrigen($this->put("origen"));
 
         return $seed;
     }

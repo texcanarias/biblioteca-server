@@ -18,6 +18,8 @@ class Biblioteca_model extends \serve\src\common\persistencia\Model_base {
     protected $Autor;
     protected $Posicion;
     protected $Leido;
+    protected $Origen;
+    
     
     public function __construct() {
         parent::__construct();
@@ -58,14 +60,24 @@ class Biblioteca_model extends \serve\src\common\persistencia\Model_base {
         $this->Posicion = $Posicion;
         return $this;
     }
+    
+    function getOrigen() {
+        return $this->Origen;
+    }
 
+    function setOrigen($Origen) {
+        $this->Origen = $Origen;
+    }
+
+    
     
     protected function changeKeys($Item) {
         $Diccionario = array("Id" => "id",
                             "Nombre" => "nombre",
                             "Autor" => "autor",
                             "Posicion" => "posicion",
-                            "Leido" => "leido");    
+                            "Leido" => "leido",
+                            "Origen" => "origen");    
         $Item =  $this->renombrarArray($Item, $Diccionario);
         return $Item;
     }    
