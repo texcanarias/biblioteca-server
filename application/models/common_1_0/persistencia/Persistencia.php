@@ -1,5 +1,4 @@
 <?php
-
 namespace serve\src\common\persistencia;
 
 include_once (__DIR__ . '/Persistencia_primitiva.php');
@@ -26,6 +25,7 @@ class Persistencia extends Persistencia_primitiva {
         if (!isset(self::$Conn[$NDB])) {
             try {
                 self::$Conn[$NDB] = new \PDO("mysql:host=" . $db[$NDB]['hostname'] . ";dbname=" . $db[$NDB]['database'], $db[$NDB]['username'], $db[$NDB]['password']);
+                self::$Conn[$NDB]->setAttribute(\PDO::MYSQL_ATTR_INIT_COMMAND, "SET NAME '".$db[$NDB]['char_set']."'");
                 self::$Conn[$NDB]->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION); //Activa el lanzamiento de excepciones.
                 self::$Conn[$NDB]->setAttribute(\PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
             } catch (PDOException $e) {
