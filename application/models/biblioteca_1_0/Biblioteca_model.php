@@ -79,6 +79,9 @@ class Biblioteca_model extends \serve\src\common\persistencia\Model_base {
                             "Leido" => "leido",
                             "Origen" => "origen");    
         $Item =  $this->renombrarArray($Item, $Diccionario);
+        
+        $Item = $this->adaptarBooleano($Item, array('leido'));
+        
         return $Item;
     }    
 
